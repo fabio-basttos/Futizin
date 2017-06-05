@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etNomeUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etEmailUsuario"
+        android:layout_alignLeft="@+id/etEmailUsuario"
+        android:layout_alignStart="@+id/etEmailUsuario"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        android:background="@drawable/border" />/>
+
+    <EditText
+        android:id="@+id/etEmailUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etDataNascimentoUsuario"
+        android:layout_alignLeft="@+id/etDataNascimentoUsuario"
+        android:layout_alignStart="@+id/etDataNascimentoUsuario"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:background="@drawable/border" />/>
+
+    <EditText
+        android:id="@+id/etDataNascimentoUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etContatoUsuario"
+        android:layout_alignStart="@+id/etContatoUsuario"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="Data de Nascimento"
+        android:inputType="textPersonName"
+        android:background="@drawable/border" />/>
+
+    <EditText
+        android:id="@+id/etContatoUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etSenhaUsuario"
+        android:layout_alignStart="@+id/etSenhaUsuario"
+        android:layout_below="@+id/etDataNascimentoUsuario"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Contato"
+        android:inputType="textPersonName"
+        android:background="@drawable/border" />/>
+
+    <EditText
+        android:id="@+id/etSenhaUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etContatoUsuario"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Escolha uma Senha"
+        android:inputType="textPersonName"
+        android:background="@drawable/border" />/>
+
+    <Button
+        android:id="@+id/btn_RegistrarUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etSenhaUsuario"
+        android:layout_marginTop="37dp"
+        android:text="Registrar" />
+</RelativeLayout>
