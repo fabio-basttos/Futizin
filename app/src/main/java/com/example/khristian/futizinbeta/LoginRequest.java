@@ -12,14 +12,14 @@ import java.util.Map;
  */
 
 public class LoginRequest extends StringRequest {
-    private static final String REQUEST_LOGIN_URL = "http://doevida.pe.hu/login.php?";
+    private static final String REQUEST_LOGIN_URL = "http://futizin.pe.hu/login.php";
     private Map<String, String> params;
 
-    public LoginRequest (String nome_usuario, String senha, Response.Listener<String> listener) {
+    public LoginRequest (String login_usuario, String senha_usuario, Response.Listener<String> listener) {
         super(Method.POST, REQUEST_LOGIN_URL, listener, null);
         params = new HashMap<>();
-        params.put("Usuario", nome_usuario);
-        params.put("Senha", senha);
+        params.put("login_usuario", login_usuario);
+        params.put("senha_usuario", senha_usuario);
     }
 
     @Override

@@ -23,9 +23,9 @@
         android:hint="Email"
         android:inputType="textPersonName"
         android:background="@drawable/border"
-        android:layout_alignTop="@+id/etNomeUsuario"
-        android:layout_alignStart="@+id/etDataNascimentoUsuario"
-        android:layout_marginTop="43dp" />/>
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/etNomeUsuario"
+        android:layout_alignStart="@+id/etDataNascimentoUsuario" />/>
 
     <EditText
         android:id="@+id/etDataNascimentoUsuario"
@@ -35,6 +35,7 @@
         android:hint="Data de Nascimento"
         android:inputType="textPersonName"
         android:background="@drawable/border"
+        android:layout_marginTop="11dp"
         android:layout_below="@+id/etEmailUsuario"
         android:layout_alignStart="@+id/etContatoUsuario" />/>
 
@@ -42,20 +43,19 @@
         android:id="@+id/etContatoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etSenhaUsuario"
-        android:layout_alignStart="@+id/etSenhaUsuario"
-        android:layout_below="@+id/etDataNascimentoUsuario"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="Contato"
         android:inputType="textPersonName"
-        android:background="@drawable/border" />/>
+        android:background="@drawable/border"
+        android:layout_below="@+id/etDataNascimentoUsuario"
+        android:layout_alignStart="@+id/etSenhaUsuario" />/>
 
     <EditText
         android:id="@+id/etSenhaUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="Escolha uma Senha"
         android:inputType="textPersonName"
@@ -71,16 +71,19 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/etSenhaUsuario"
         android:layout_marginTop="37dp"
-        android:text="Registrar" />
+        android:text="SALVAR" />
 
     <EditText
         android:id="@+id/etLoginUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:layout_alignStart="@+id/etContatoUsuario"
         android:layout_below="@+id/etContatoUsuario"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:hint="Escolha um login"
+        android:inputType="textPersonName" />@+id/etContatoUsuario"
         android:layout_alignStart="@+id/etSenhaUsuario"
         android:layout_marginTop="19dp" />
 </RelativeLayout>

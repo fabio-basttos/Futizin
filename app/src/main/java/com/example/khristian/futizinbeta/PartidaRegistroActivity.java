@@ -1,47 +1,97 @@
 package com.example.khristian.futizinbeta;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by Khristian on 11/05/2017.
  */
 
 public class PartidaRegistroActivity extends Activity {
-    EditText localPartida;
-    EditText horarioPartida;
-    EditText dataPartida;
-    EditText faixaEtaria;
-    EditText valorPartida;
-    EditText quantidadeJogadores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_partida);
 
-        localPartida = (EditText) findViewById(R.id.etLocalPartida);
-        horarioPartida = (EditText) findViewById(R.id.etHorarioPartida);
-        dataPartida = (EditText) findViewById(R.id.etDataPartida);
-        faixaEtaria = (EditText) findViewById(R.id.etFaixaEtaria);
-        valorPartida = (EditText) findViewById(R.id.etValorPartida);
-        quantidadeJogadores = (EditText) findViewById(R.id.etQuantidadeJogadores);
+        final EditText etLocalPartida = (EditText) findViewById(R.id.etLocalPartida);
+        final EditText etHorarioPartida = (EditText) findViewById(R.id.etHorarioPartida);
+        final EditText etDataPartida = (EditText) findViewById(R.id.etDataPartida);
+        final EditText etFaixaEtaria = (EditText) findViewById(R.id.etFaixaEtaria);
+        final EditText etValorPartida = (EditText) findViewById(R.id.etValorPartida);
+        final EditText etQuantidadeJogadores = (EditText) findViewById(R.id.etQuantidadeJogadores);
+        final Button btnCriarPartida = (Button) findViewById(R.id.btn_CriarPartida);
+
+
+        btnCriarPartida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String local = etLocalPartida.getText().toString();
+                final String data = etDataPartida.getText().toString();
+                final String horario = etHorarioPartida.getText().toString();
+                final int faixa_etaria = Integer.parseInt(etFaixaEtaria.getText().toString());
+                final int valor = Integer.parseInt(etValorPartida.getText().toString());
+                final int quantidade_jogadores = Integer.parseInt(etQuantidadeJogadores.getText().toString());
+
+
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean sucesso = jsonResponse.getBoolean("sucesso");
+
+                            if (sucesso){
+                                Intent intent = new Intent(PartidaRegistroActivity.this, LobbyActivity.class);
+                                PartidaRegistroActivity.this.startActivity(intent);
+                            }
+                            else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(PartidaRegistroActivity.this);
+                                builder.setMessage("Não foi possivel gravar registros")
+                                        .setNegativeButton("Tente novamente", null)
+                                        .create()
+                                        .show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                PartidaRegistroRequest partidaRequest = new PartidaRegistroRequest(local, data, horario, faixa_etaria, valor, quantidade_jogadores, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(PartidaRegistroActivity.this);
+                queue.add(partidaRequest);
+            }
+        });
+
+
 
     }
 
-    public void criarPartida(View view) {
+    /*public void criarPartida(View view) {
         boolean granted = true;
 
-        if (localPartida.getText().toString().isEmpty()) {
-            localPartida.setBackground(getDrawable(R.drawable.border_error));
+        if (etLocalPartida.getText().toString().isEmpty()) {
+            etLocalPartida.setBackground(getDrawable(R.drawable.border_error));
             Toast.makeText(this, "Campo Incorreto!.", Toast.LENGTH_SHORT).show();
             granted = false;
         } else {
-            localPartida.setBackground(getDrawable(R.drawable.border));
+            etLocalPartida.setBackground(getDrawable(R.drawable.border));
         }
         if (horarioPartida.getText().toString().isEmpty()) {
             horarioPartida.setBackground(getDrawable(R.drawable.border_error));
@@ -84,5 +134,5 @@ public class PartidaRegistroActivity extends Activity {
             Intent intent = new Intent(PartidaRegistroActivity.this, ListaPartidasActivity.class);
             startActivity(intent);
         }
-    }
+    }*/
 }

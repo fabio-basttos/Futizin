@@ -43,8 +43,8 @@ public class LoginActivity extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String nome_usuario = etUsuarioLogin.getText().toString();
-                final String senha = etUsuarioSenha.getText().toString();
+                final String login_usuario = etUsuarioLogin.getText().toString();
+                final String senha_usuario = etUsuarioSenha.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -71,7 +71,7 @@ public class LoginActivity extends Activity {
                     }
                 };
 
-                LoginRequest loginRequest = new LoginRequest(nome_usuario, senha, responseListener);
+                LoginRequest loginRequest = new LoginRequest(login_usuario, senha_usuario, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
 

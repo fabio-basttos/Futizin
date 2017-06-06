@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Futizin.iml" filepath="$PROJECT_DIR$/Futizin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FutizinF.iml" filepath="$PROJECT_DIR$/FutizinF.iml" />
       <module fileurl="file://$PROJECT_DIR$/Futizinbeta.iml" filepath="$PROJECT_DIR$/Futizinbeta.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

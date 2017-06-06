@@ -40,7 +40,7 @@ public class RegistroActivity extends Activity {
             public void onClick(View v) {
                 final String nome_usuario = etNomeUsuario.getText().toString();
                 final String email_usuario = etEmailUsuario.getText().toString();
-                final String data_nasc_usuario = etDataNascimentoUsuario.getText().toString();
+                final String data_nascimento_usuario = etDataNascimentoUsuario.getText().toString();
                 final String contato_usuario = etContatoUsuario.getText().toString();
                 final String login_usuario = etLoginUsuario.getText().toString();
                 final String senha_usuario = etSenhaUsuario.getText().toString();
@@ -72,7 +72,7 @@ public class RegistroActivity extends Activity {
                     }
                 };
 
-                RegistroRequest registroRequest = new RegistroRequest(nome_usuario, email_usuario, data_nasc_usuario, contato_usuario, login_usuario, senha_usuario, responseListener);
+                RegistroRequest registroRequest = new RegistroRequest(nome_usuario, email_usuario, data_nascimento_usuario, contato_usuario, login_usuario, senha_usuario, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegistroActivity.this);
                 queue.add(registroRequest);
             }
