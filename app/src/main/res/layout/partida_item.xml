@@ -55,4 +55,12 @@
         android:layout_alignStart="@+id/textFaixaEtaria"
         android:layout_below="@+id/textFaixaEtaria"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textQuantidadeJogadores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textValor"
+        android:text="TextView" />
 </RelativeLayout>
